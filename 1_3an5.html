@@ -1,0 +1,32 @@
+<!doctype html>
+<html>
+	<head>
+		<title>SumMultiplesof3or5</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<script>
+
+			/*  If we list all the natural numbers below 10 that are multiples of 3 or 5,
+			    we get 3, 5, 6 and 9. The sum of these multiples is 23.
+
+			    Find the sum of all the multiples of 3 or 5 below 1000.  */
+
+
+
+			var sumFun = function (num) {
+						var sum = 0;
+						for (var i = 3; i < num; i++) {
+							if (i % 3 === 0 || i % 5 === 0) {
+								sum += i;
+							}
+						}
+						return sum;
+					};
+
+			document.write(sumFun(1000)); 
+
+		</script>
+	</head>
+	<body>
+		<h1>Page to run SumMultiplesof3or5 Javascript code!</h1>
+	</body>
+</html>

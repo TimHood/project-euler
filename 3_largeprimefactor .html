@@ -1,0 +1,73 @@
+<!doctype html>
+<html>
+	<head>
+		<title>LargestPrimeFactor</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<script>
+			/*  The prime factors of 13195 are 5, 7, 13 and 29.
+
+	    What is the largest prime factor of the number 600851475143 ?
+
+			just solve for numbers smaller than 1,000
+			and don't worry about making it efficient.
+			You won't need to do any crazy math -- 
+			think iteration and make the computer do the work. 
+			Consider it extra credit to make your solution solve 
+			for larger numbers in a way that isn't too slow.  */
+
+			//my brute force solution is very slow when called 10000 times
+			// var isPrime = function(n) {
+			// 	//integers < 2 and even integers other than 2 are not primes
+			// 	if (n < 2) return false;
+			// 	if (n === 2) return true;
+			// 	if (n % 2 === 0) return false;
+			// 	//check odd integers >= 3
+			// 	for (var i = 3; i <= n; i+=2) {
+			// 	  for (var j = 2; j < n; j++) {
+			// 	  	if (n % j === 0) return false;
+			// 	  }
+			// 	}
+			// 	return true;
+			// };
+
+			//faster solution but far from best solution
+			var isPrime = function(n) {
+				//integers < 2 and even integers other than 2 are not primes
+				if (n < 2) return false;
+				if (n === 2) return true;
+				if (n % 2 === 0) return false;
+				//check odd integers >= 3
+				var m=Math.sqrt(n);              //solution from 
+				for (var i = 3; i <= m; i+=2) {  //javascripter.net
+				  if (n % i === 0) return false;
+				}
+				return true;
+			};
+
+			var largestPrimeFactor = function(n) {
+				var primeFactors = [];
+				for (var i = 2; i <= n; i++) {
+					if (isPrime(i)) {
+						if (n % i === 0) {
+							primeFactors.push(i);
+						}
+					} 
+				}
+				document.write(primeFactors+"<br>");
+				return primeFactors.pop();
+				};
+
+			
+			document.write(largestPrimeFactor(1000)+"<br>");  //  ==>  5
+			document.write(largestPrimeFactor(99999)+"<br>");  //  ==>  271
+			document.write(largestPrimeFactor(999999)+"<br>");  //  ==>  37
+			//next line takes way too long
+			//document.write(largestPrimeFactor(600851475143)+"<br>");  //  ==>  6857
+		</script>
+	</head>
+	<body>
+		<h1>Page to run LargestPrimeFactor Javascript code!</h1>
+	</body>
+</html>
+
+

@@ -1,2 +1,4 @@
 # project-euler
-Problems done s part of The Odin Project
+Problems done as part of The Odin Project
+
+Initial commit -- 1st 3 problems
